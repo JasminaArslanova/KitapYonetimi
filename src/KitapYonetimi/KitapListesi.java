@@ -8,6 +8,9 @@ public class KitapListesi {
     public static String kitapAdi;
     public static String kitapYazari;
     public static int kitapFiyati;
+    public  static int count = 1000;
+
+
 
 
     public KitapListesi() {
