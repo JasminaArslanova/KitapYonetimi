@@ -1,8 +1,8 @@
-package Kitap02;
+package KitapYonetimiCozum2;
 
-public class EklenenKitaplar {
+import Kitap02.KitapciKitapEkle;
 
-    private int kitapNo;
+public class Kitap {
     private String kitapAdı;
     private String yazar;
     private double kitapFiyatı;
@@ -10,24 +10,27 @@ public class EklenenKitaplar {
 
 
 
-    public EklenenKitaplar() {}
+    public Kitap() {}
 
-    public EklenenKitaplar (int kitapNo, String kitapAdı, String yazar, double kitapFiyatı) {
-        this.kitapNo=KitapciKitapEkle.count;
+    public Kitap (String kitapAdı, String yazar, double kitapFiyatı) {
         this.kitapAdı=kitapAdı;
         this.yazar=yazar;
         this.kitapFiyatı=kitapFiyatı;
     }
 
+    @Override
+    public String toString() {
+        return "Kitap{" +
 
-
-    public int getKitapNo() {
-        return kitapNo;
+                ", kitapAdı='" + kitapAdı + '\'' +
+                ", yazar='" + yazar + '\'' +
+                ", kitapFiyatı=" + kitapFiyatı +
+                '}';
     }
 
-    public void setKitapNo(int kitapNo) {
-        this.kitapNo = kitapNo;
-    }
+
+
+
 
     public String getKitapAdı() {
         return kitapAdı;
@@ -53,17 +56,6 @@ public class EklenenKitaplar {
         this.kitapFiyatı = kitapFiyatı;
     }
 
-
-
-    @Override
-    public String toString() {
-        return "EklenenKitaplar{" +
-                "kitapNo=" + kitapNo +
-                ", kitapAdı='" + kitapAdı + '\'' +
-                ", yazar='" + yazar + '\'' +
-                ", kitapFiyatı=" + kitapFiyatı +
-                '}';
-    }
 
 
 }
