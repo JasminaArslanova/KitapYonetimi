@@ -1,21 +1,19 @@
 package KitapYonetimiCozum2;
-
-import Kitap02.EklenenKitaplar;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Methods {
     public static int kitapNo=1000;
-   public static Map<Integer,Kitap> kitapMap=new HashMap<Integer,Kitap>();
+   public static Map<Integer,Kitap> kitapMap=new HashMap<>();
    static Scanner scan=new Scanner(System.in);
 
 
     public static void girisPaneli(){
         System.out.println("//////////////// KİTAP YONETIMI PROGRAMI //////////////////");
         System.out.println(
-                "1-kitap ekle\n" +
+                "	1-kitap ekle\n" +
                         "	2-numara ile kitap goruntule\n" +
                         "	3-bilgi ile kitap goruntule\n"+
                         "	4-numara ile kitap sil\n" +
@@ -57,13 +55,31 @@ public class Methods {
         }}
 
     private static void kitaplariListele() {
+        Set<Map.Entry<Integer, Kitap>> urunEntrySeti = kitapMap.entrySet();
+        System.out.println("---------------------------ÜRÜN LİSTESİ---------------------------------");
+        System.out.println("NO:       kitap adi            yazari             fiyati" +
+                "\n----------------------------------------------------------------------");
+        for (Map.Entry<Integer, Kitap> e : urunEntrySeti
+        ) {
+            Integer entryKey = e.getKey();
+            System.out.printf("%-9d %-20s %-18s %-12s\n", entryKey, kitapMap.get(entryKey).getKitapAdı(), kitapMap.get(entryKey).getYazar(), kitapMap.get(entryKey).getKitapFiyatı());
+        }
+
     }
 
     private static void numaraIleKitapSil() {
+        System.out.println("silmek istediginiz kitap numarasi giriniz");
+        int arananNumara=scan.nextInt();
+
+        if (kitapMap.containsKey(arananNumara)){
+            System.out.println(arananNumara+" numarali:  "+ kitapMap.get(arananNumara)+" Kitap listesinden silindi...");
+            kitapMap.remove(arananNumara);
+
+        }else System.out.println("Girdiginiz numarada kitap bulunmadi");
     }
 
     private static void bilgiIleGoruntule() {
-        System.out.println("Kitap adi ile aramak icin - 1\nKitap yazari ile aramak icin- 2");
+        System.out.println("1- Kitap adi ile aramak icin\n2- Kitap yazari ile aramak icin");
         int islem= scan.nextInt();
         switch (islem){
             case 1:
@@ -82,9 +98,9 @@ public class Methods {
                 String arananYazarAdi=scan.nextLine();
 
                 for (Kitap each: kitapMap.values()) {
-                    if( each.getKitapAdı().equalsIgnoreCase(arananYazarAdi)){
+                    if( each.getYazar().equalsIgnoreCase(arananYazarAdi)){
                         System.out.println("Kitap adi:  "+each.getKitapAdı()+"Kitap Yazari:  "+each.getYazar()+"Kitap fiyati:  "+each.getKitapFiyatı());
-                    }else System.out.println("Girdiginiz adli kitap yok");}
+                    }else System.out.println("Girdiginiz yazar adli kitap yok");}
         }
     }
 
@@ -102,13 +118,12 @@ public class Methods {
     }
 
     public static void kitapEkleMethodu(){
-        Scanner scan= new Scanner (System.in);
         System.out.println("Kitap adini giriniz");
         String kitapAdi= scan.nextLine();
         System.out.println("Kitap Yazarını giriniz");
         String kitapYazari= scan.nextLine();
         System.out.println("Kitap Fiyatı giriniz");
-        double kitapFiyati= scan.nextInt();
+        double kitapFiyati= scan.nextDouble();
 
         Kitap kitapObjesi= new Kitap(kitapAdi,kitapYazari,kitapFiyati);
         kitapMap.put(kitapNo,kitapObjesi);
