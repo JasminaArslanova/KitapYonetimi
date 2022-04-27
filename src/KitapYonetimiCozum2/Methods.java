@@ -21,7 +21,7 @@ public class Methods {
                         "	4-numara ile kitap sil\n" +
                         "	5-tum kitaplari listele\n" +
                         "	6-cikis ");
-        System.out.print("Isleminizi secisiniz: ");
+        System.out.print("Isleminizi seciniz: ");
 
        int islem= scan.nextInt();
 
@@ -57,9 +57,16 @@ public class Methods {
         }}
 
     private static void kitaplariListele() {
+        System.out.println(kitapMap);
     }
 
     private static void numaraIleKitapSil() {
+        System.out.println("silmek istediğiniz kitabın numarasını giriniz");
+        int silinecekkitap = scan.nextInt();
+        if (kitapMap.containsKey(silinecekkitap)){
+            kitapMap.remove(silinecekkitap);
+        }else System.out.println("silinecek kitap bulunamadı");
+
     }
 
     private static void bilgiIleGoruntule() {
@@ -82,7 +89,7 @@ public class Methods {
                 String arananYazarAdi=scan.nextLine();
 
                 for (Kitap each: kitapMap.values()) {
-                    if( each.getKitapAdı().equalsIgnoreCase(arananYazarAdi)){
+                    if( each.getYazar().equalsIgnoreCase(arananYazarAdi)){
                         System.out.println("Kitap adi:  "+each.getKitapAdı()+"Kitap Yazari:  "+each.getYazar()+"Kitap fiyati:  "+each.getKitapFiyatı());
                     }else System.out.println("Girdiginiz adli kitap yok");}
         }
@@ -98,7 +105,7 @@ public class Methods {
         if (kitapMap.containsKey(arananNumara)){
             System.out.println(arananNumara+" numarali:  "+ kitapMap.get(arananNumara));
 
-        }else System.out.println("Girdiginiz numarada kitap bulunmadi");
+        }else System.out.println("Girdiginiz numarada kitap bulunamadi");
     }
 
     public static void kitapEkleMethodu(){
