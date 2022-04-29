@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+//a1
 
 public class Methods {
     public static int kitapNo=1000;
