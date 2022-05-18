@@ -1,4 +1,4 @@
-package Kitap02;
+package KitapYonetimi_Halukca;
 
 public class EklenenKitaplar {
 

@@ -1,7 +1,4 @@
-package Kitap02;
-
-import KitapYonetimi.KitapEkle;
-import KitapYonetimi.KitapListesi;
+package KitapYonetimi_Halukca;
 
 import java.util.ArrayList;
 import java.util.List;

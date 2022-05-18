@@ -1,18 +1,12 @@
 package KitapYonetimiCozum2;
-
-import Kitap02.KitapciKitapEkle;
-
-public class Kitap {
+public class Kitap { //POJO CLASS
     private String kitapAdı;
     private String yazar;
     private double kitapFiyatı;
 
-
-
-
     public Kitap() {}
 
-    public Kitap (String kitapAdı, String yazar, double kitapFiyatı) {
+    protected Kitap (String kitapAdı, String yazar, double kitapFiyatı) {
         this.kitapAdı=kitapAdı;
         this.yazar=yazar;
         this.kitapFiyatı=kitapFiyatı;
